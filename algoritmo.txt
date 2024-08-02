@@ -1,0 +1,19 @@
+Que es un algoritmo: Es un metodo para resolver un problema o dicho de mejor manera, es un conjunto ordenado y finito de operaciones que permite hayar la solucion a un problema
+Los algoritmos surgen gracias a el matematico persa Mohamed al-khoWairizmi que establecio los pasos para las operaciones aritmeticas, ademas el otro "Padre" de los algoritmos
+Podemos tomar a Euclides que nos presento uno de los algoritmos mas conocidos, aquel que lleva su por nombre a si mismo, el cual nos ayuda a encontrar el mcm de dos numeros
+
+Pasos para resolver un problema:
+1.-Diseño del algoritmo: Cual va a ser la secuencia para resolver dicho problema, que sea finito y sin ambiguedades 
+2.- Expresar el algoritmo como un programa: Se refiere a la parte de codificacion 
+3.- Ejecucion del algoritmo y validacion: Una vez terminado el programa que contiene nuesttro algoritmo este debe ser ejecutador por la maquina y validado, es decir que se llegue
+                                          A la resoluicion del problema para la n cantidad de casos que probamos
+
+Caracteristicas de los algoritmos:
+-Un algoritmo debe ser preciso: Es decir debe estar enumerado de tal manera en sus pasos que no podamos confundirnos 
+-Un algoritmo debe estar definido: Esta parte se refiere a que para n veces de resolucion del problema debemos obtener n resultados correctos 
+-Un algoritmo debe ser finito: Debe tener un fin determinado 
+
+Para definir un algoritmo contamos con 3 partes:
+-Entrada:
+-Proceso:
+-Salida:

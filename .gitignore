@@ -1,0 +1,80 @@
+# Compiled object files
+*.o
+*.obj
+
+# Compiled static libraries
+*.lib
+*.a
+
+# Compiled dynamic libraries
+*.dll
+*.so
+*.dylib
+
+# Executable files
+*.exe
+*.out
+*.app
+
+# Debug files
+*.dSYM/
+*.stackdump
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Editor/IDE specific files
+.vscode/
+*.code-workspace
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*~
+*.bak
+*.old
+
+# Build directories
+/build/
+dist/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# CodeBlocks
+*.layout
+*.depend
+*.layout
+*.cbp
+*.workspace
+
+# Other IDEs
+*.ncb
+*.sdf
+*.opensdf
+*.opendb
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.vcproj
+*.suo
+*.user
+*.tlog
+*.rsuser
+*.VC.db
+*.VC.opendb
+
+# Logs
+*.log
