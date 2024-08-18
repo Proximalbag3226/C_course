@@ -1,0 +1,1 @@
+//La sentencia switch la tenemos como una cantidad de elif pero para caeda caso corespondiente
