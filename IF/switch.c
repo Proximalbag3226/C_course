@@ -15,6 +15,7 @@ default: sentencia;
 
 //Ejemplo de uso 
 
+/*
 #include <stdio.h>
 
 int main(){
@@ -35,4 +36,39 @@ int main(){
     default: printf("Numero incorrecto");
         break;
     }
+}
+  */
+
+//Otro ejemplo de uso seria el siguiente 
+
+#include <stdio.h>
+
+int main(){
+    char vocal;
+    printf("Ingrese una vocal: ");
+    scanf("%c", &vocal);
+
+    switch (vocal)
+    {
+    case 'a':
+    printf("La vocal elegida es: a");
+    break;
+    case 'e':
+    printf("La vocal elegida es e");
+    break;
+    case 'i':
+    printf("La vocal elegida es i");
+    break;
+    case 'o':
+    printf("La vocal elegida es o");
+    break;
+    case 'u':
+    printf("La vocal elegida es u");
+    break;
+
+    default:
+    printf("No ha elegido ninguna vocal");
+    }
+
+    return 0;
 }
