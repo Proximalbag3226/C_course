@@ -1,6 +1,7 @@
 #include <math.h>
 #include "circunferencia.h"
 
+//declaramos las variables
 float Radio(int radio){
     float r;
     r = pow(radio, 2);
