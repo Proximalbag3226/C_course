@@ -1,0 +1,9 @@
+En matematica y programacion un algoritmo se define como una serie de pasos o instrucciones o reglas definidas, no ambiguas y finitas
+Para poder resolver un problema dado, realizar calculos matematicos, procesar datos y/o llevar a cabo tareas
+
+Los algoritmos se componen de 3 partes principales:
+1.-Input(Entrada): Es la informacion dada al algoritmo y/o los datos que de entrada que proporcionamos para que llegen al resultado dado
+2.-Proceso: Es el conjunto de instrucciones definidas dentro del programa para procesar los datos dados en la entrada
+            En general estas instrucciones estan compuestas por ciclos, condicionales y bloques de codigo
+3.-Output(salida): Son los resultados a partir del procesamiento de la informacion y los datos.
+
