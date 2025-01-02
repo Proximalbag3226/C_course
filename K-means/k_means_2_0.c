@@ -26,7 +26,7 @@ typedef struct {
 //Las fucnioes que vasmo a utilizae dentro de nuestro programa 
 
 //Calcular la distacia ecuclidiana entre los puntos y los centros
-int distancia_cercana(punto* a, centro centros[], int num_centros);
+int distancia_cercana(punto* a, centro centros[], int num_centros, int num_componentes);
 
 //La funcion para poder asignar un centro a cada punto 
 int asignar_centro(punto puntos[], int num_puntos, centro centros[], int num_centros);
@@ -38,7 +38,7 @@ void recalcular_centro(punto puntos[], int num_puntos, centro centros[], int num
 void iniciar_centros(centro centros[], int num_centros, int num_componentes);
 
 //Con esta funcion vamos a leer los datos del archivo de data iris 
-void cargar_data(punto puntos[], int num_puntos);
+void cargar_data(punto puntos[], int max_puntos, int num_componetes);
 
 //Por ultimo nuestra funcion main
 int main() {
@@ -139,14 +139,13 @@ void iniciar_centros(centro centros[], int num_centros, int num_componentes) {
     }
 }
 
-void cargar_data(punto puntos[], int max_puntos, int num_componetes) {
+void cargar_data(punto puntos[], int max_puntos, int num_componentes) {
     for (int i = 0; i < max_puntos; i++) {
-        for (int j = 0; j < num_componetes; j++){
-            //Falta corregir error en la entrada de datos
-            scanf("", &puntos[i].componentes[j]);
+        printf("Punto %d (componentes separados por tabulaciones): ", i + 1);
+        for (int j = 0; j < num_componentes; j++) {
+            scanf("%f", &puntos[i].componentes[j]);
         }
-        
-        scanf("%f\t%f\t%f\t%f", &puntos[i].w, &puntos[i].x, &puntos[i].y, &puntos[i].z);
+        puntos[i].grupo = -1;
     }
 }
 

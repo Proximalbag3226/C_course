@@ -121,4 +121,60 @@ int main() {
 
 //Ahora pasemos con los arreglos y la aritmetica de apuntadores
 
+//Los arreglos y los putneros tienen una estrecha relacion entre ellos de manera que un puntero a un array simplemente sera un puntero
+//Constante al inicio del arreglo, podemos direccionar arreglos como su fueran apuntadores y apuntadores como si fueran arreglos 
+//Ejemplo:
+int array1[5] = {1,2,3,4,5};
+int *parray;
+
+//En esta parte estamos asignando el aputnador a nuestro array por lo tanto ambas variables van al mismo sitio 
+parray = array1;
+
+//Ahora podemos usar el puntero para recorrer el arreglo
+
+for (int i = 0; i < 5; i++) {
+    printf("Valor en la posicion %d: %d\n", i, parray[i]);
+}
+
+//Particularmente podemos decir que las dos instrucciones siguientes son equivalentes 
+printf("%i", array1[0]);
+printf("%i", parray[0]);
+
+//La diferencia es que en la primera linea estamos utilizando la notacion de arreglo para acceder al valor en la posicion i del arreglo
+
+//Ahora veremos la aritmetica de apuntadores, estos al tener un operador unario detras de ellos pueden realizar operaciones dentro de un 
+//Parentesis, estas opreaciones (suma y resta) nos permiten movernos hacia adelante o hacia atras, respectivamente, por bloques de bytes
+//Del temaño del tipo de variable que sea nuestro apuntador, por ejemeplo en el caso de un int nos moveremos 4 bytes, ejemplo:
+
+int array2[5] = {0,1,2,3,4};
+int *parray2;
+
+//Aqui estamos almacenando la direccion de la posicion 3 del arreglo
+parray2 = &array2[3];
+
+//Por aritmetica de apuntadores esta instruccion es lo mismo que la anterior ya que solamente estamos recorriendo espacios de memoria
+parray2 = array2 +3;
+
+//Ahora 2 istrucciones equivalentes
+printf("%i", array2[2]);
+
+//Y es equivalente a la parte de arriba
+printf("%i", *(array2 +2));
+
+//La ultima parte de la aritmetica de apuntadores es que es posible restarlos para obtener el numero de bloques de bytes que hay entre ambos
+int array3[5] = {1,2,3,4,5}, n;
+int *parray3, *parray4;
+
+//Asignamos valores a nuestros apuntadores
+parray3 = &array3[1];
+parray4 = &array3[4];
+
+//Aqui por una simple resta podemos darnos cuenta que estamos asignando 3 a n
+n = parray4-parray3;
+
+//Por ultimo y una de las partes fundamentales tanto de la porgramacion como de el lenguaje C en general es la asignacion dinamica de memoria 
+
+
+
+
 

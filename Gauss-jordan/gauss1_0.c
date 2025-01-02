@@ -84,19 +84,21 @@ void gauss_jordan(double matrix[3][3], double independientes[3]){
         for (int j = 0; j < 3; j++) {
             matrix[i][j] /= pivote;
         }
+
         independientes[i] /= pivote;
         
-    //Ahora vamos a eliminar los otros elementos de la columna de nuestro elemento de la diagonal lo que se refiere a realizar 
-    //Una multiplicacion y posteriormente una resta a los elementos de la columna
-    for (int j = 0; j < 3; j++) {
-        if (j!= i) {
-            double elemento = matrix[j][i];
-            for (int k = 0; k < 3; k++) {
-                matrix[j][k] -= matrix[i][k] * elemento;
+        //Ahora vamos a eliminar los otros elementos de la columna de nuestro elemento de la diagonal lo que se refiere a realizar 
+        //Una multiplicacion y posteriormente una resta a los elementos de la columna
+        for (int j = 0; j < 3; j++) {
+            if (j!= i) {
+                double elemento = matrix[j][i];
+                for (int k = 0; k < 3; k++) {
+                    matrix[j][k] -= matrix[i][k] * elemento;
+                }
+                
+                independientes[j] -= independientes[i] * elemento;
             }
-            independientes[j] -= independientes[i] * elemento;
         }
-    }
     }
     
     //Finalmente tenemos que imprimir los resultados que estan almacenados en nuestro vector 
