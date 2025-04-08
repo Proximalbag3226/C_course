@@ -7,7 +7,7 @@ typedef struct Nodo {
     struct Nodo* sig;
 } Nodo;
 
-bool sonIdenticas(Nodo* A, Nodo* B) {
+bool sonIdenticas(Nodo* A, Nodo* B) {       
     while (A != NULL && B != NULL) {
         if (A->dato != B->dato) {
             return false; 
@@ -74,11 +74,33 @@ void guardarListaEnArchivo(Nodo* A, const char* nombreArchivo) {
     printf("Lista guardada exitosamente en '%s'.\n", nombreArchivo);
 }
 
-float sonIdenticas(Nodo* A) {
-    Nodo* actual = A;
-    float promedio;
-    while (actual != NULL) {
-        
+float Promedio(Nodo * A){
+    float suma = 0;
+    float tamaño = 0;
+
+    while (A != NULL) {
+        suma = A->dato;
+        A = A->sig;
+        tamaño++;
     }
-    
+    float promedio = suma/promedio;
 }
+
+float Maximo(Nodo *A){
+    float maximo = 0;
+    while (A != NULL){
+        if (A->dato >maximo){
+            maximo = A->dato;
+        }
+        A = A->sig;   
+    }
+    printf("El maximo de la lista %f", maximo);
+}
+
+int Recursiva1(Nodo *A){
+    if(A->sig = NULL){
+        return 1;
+    }
+    return 1 + Recursiva1(A->sig);
+}
+
