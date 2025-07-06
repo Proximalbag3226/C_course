@@ -4,13 +4,13 @@
 #include <sys/stat.h>
 
 typedef struct Nodo {
-    char *dato; 
+    char *dato;
     struct Nodo *siguiente;
 } Nodo;
 
 typedef Nodo* Lista;
 
-Nodo* crear_nodo(char *valor) {
+Nodo* crear_nodo(const char *valor) {
     Nodo* nuevo = (Nodo*)malloc(sizeof(Nodo));
     if (!nuevo) {
         printf("Error al asignar memoria.\n");
@@ -90,54 +90,69 @@ void Imprimir(Lista lista) {
     printf("(inicio)\n");
 }
 
-void Carrusel(Lista lista) {
-    if (lista == NULL) return;
-    Nodo* actual = lista;
+void Carrusel(Lista *lista) {
+    if (*lista == NULL) return;
+    Nodo* actual = *lista;
     int resultado;
-    while(1){
-        printf("¿Desea continuar?");
-        scanf("%i", &resultado);
-        if (resultado == 1) {    
-            printf("Ejecutando comando: %s\n", actual->dato);
+    char comando[100];
+
+    while (1) {
+        printf("\nComando actual: %s\n", actual->dato);
+        printf("Accion a realizar:\n");
+        printf("1) Ejecutar comando\n");
+        printf("2) Siguiente comando\n");
+        printf("3) Agregar comando\n");
+        printf("4) Eliminar comando\n");
+        printf("5) Terminar\n");
+        printf("Seleccione opcion: ");
+        if (scanf("%d", &resultado) != 1) {
+            while (getchar() != '\n');
+            printf("Entrada invalida.\n");
+            continue;
+        }
+        getchar();
+
+        if (resultado == 1) {
+            printf("Ejecutando: %s\n", actual->dato);
             int res = system(actual->dato);
             if (res != 0) {
                 printf("Error al ejecutar el comando.\n");
             }
+        } else if (resultado == 2) {
             actual = actual->siguiente;
-        } else break;
+        } else if (resultado == 3) {
+            printf("Ingrese el nuevo comando: ");
+            fgets(comando, sizeof(comando), stdin);
+            comando[strcspn(comando, "\n")] = '\0';
+            Insertar(lista, comando);
+        } else if (resultado == 4) {
+            printf("Ingrese el comando a eliminar: ");
+            fgets(comando, sizeof(comando), stdin);
+            comando[strcspn(comando, "\n")] = '\0';
+            Eliminar(lista, comando);
+            if (*lista == NULL) {
+                printf("Lista vacia. Terminando carrusel.\n");
+                break;
+            }
+            actual = *lista;
+        } else if (resultado == 5) {
+            printf("Saliendo del carrusel.\n");
+            break;
+        } else {
+            printf("Opcion no válida.\n");
+        }
     }
 }
 
 int main() {
     Lista miLista = lista_crear();
-
-    Insertar(&miLista, "Ana");
-    Insertar(&miLista, "Luis");
-    Insertar(&miLista, "Carlos");
-    Insertar(&miLista, "Beatriz");
-
-    printf("Lista después de insertar:\n");
-    Imprimir(miLista);
-
-    Eliminar(&miLista, "Luis");
-    printf("\nLista después de eliminar 'Luis':\n");
-    Imprimir(miLista);
-
-    Eliminar(&miLista, "Ana");
-    Eliminar(&miLista, "Carlos");
-    Eliminar(&miLista, "Beatriz");
-
-    printf("\nLista después de eliminar todo:\n");
-    Imprimir(miLista);
-    Insertar(&miLista, "mkdir carpeta_nueva");
-    Insertar(&miLista, "rmdir carpeta_nueva");
     Insertar(&miLista, "mkdir carpeta_nueva");
     Insertar(&miLista, "rmdir carpeta_nueva");
     Insertar(&miLista, "ipconfig");
     Insertar(&miLista, "tasklist");
     Insertar(&miLista, "cls");
-    Carrusel(miLista);
+
+    Carrusel(&miLista);
+
     return 0;
-
 }
-
