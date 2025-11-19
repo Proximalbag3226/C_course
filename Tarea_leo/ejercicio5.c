@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <ctype.h>
 
 int main() {
     int vocales = 0;
@@ -15,11 +14,13 @@ int main() {
     ptr = array;
 
     while (*ptr != '\0' && *ptr != '\n') {
-        char caracterActual = tolower(*ptr);
+        char caracterActual = *ptr;
 
         if (caracterActual == 'a' || caracterActual == 'e' ||
             caracterActual == 'i' || caracterActual == 'o' ||
-            caracterActual == 'u') {
+            caracterActual == 'u' || caracterActual == 'A' ||
+            caracterActual == 'E' || caracterActual == 'I' ||
+            caracterActual == 'O' || caracterActual == 'U') {
 
             vocales++;
             }
